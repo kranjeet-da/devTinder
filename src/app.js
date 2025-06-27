@@ -2,20 +2,9 @@ const express = require("express");
 
 const app = express();
 
-app.use("/hello/2", (req, res) =>{
-    res.send("Abracadabra");
-});
-
-app.use("/hello", (req, res) =>{
-    res.send("Hello hello hello");
-});
-
-app.use("/test",(req, res)=>{
-    res.send("Hello from server!");
-});
-
-app.use("/", (req, res) =>{
-    res.send("From server end");
+app.get("/user/:userId/:name/:password", (req, res) => {
+    console.log(req.params)
+    res.send({firstName:"Ranjeet", lastName:"Kumar"});
 });
 
 app.listen(3000, () => {
